@@ -56,6 +56,10 @@
 #define ALIGN_RIGHT  -1 
 #define ALIGN_CENTER -2
 
+
+
+#ifdef __cplusplus
+
 struct RRE_Font {
   uint8_t type;
   uint8_t wd;
@@ -65,6 +69,8 @@ struct RRE_Font {
   const uint8_t *rects;
   const uint16_t *offs;
 };
+
+
 // ---------------------------------
 class RREFont {
 public:
@@ -118,5 +124,17 @@ public:
   uint8_t minDigitWd;
   uint8_t dualChar;
 };
+#else //not cplusplus
+typedef struct  {
+  uint8_t type;
+  uint8_t wd;
+  uint8_t ht;
+  uint8_t firstCh;
+  uint8_t lastCh;
+  const uint8_t *rects;
+  const uint16_t *offs;
+} RRE_Font;
+
+#endif
 #endif
 
