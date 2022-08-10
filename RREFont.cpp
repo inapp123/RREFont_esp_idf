@@ -448,7 +448,7 @@ int RREFont::printStr(int xpos, int ypos, char *str)
   while(*str) {
     char ch = *str++;
     int wd = charWidth(ch);
-    if(ch==10 || cr && x+wd>=scrWd) { 
+    if(ch==10 || (cr && x+wd>=scrWd)) { 
       x = xpos; 
       y += rFont->ht * sy + spacingY;
       if(ch==10) continue;
@@ -479,47 +479,47 @@ unsigned char RREFont::convertPolish(unsigned char _c)
   }
   if(dualChar) { // UTF8 coding
     switch(_c) {
-      case 133: pl = 1+9; break; // '¹'
-      case 135: pl = 2+9; break; // 'æ'
-      case 153: pl = 3+9; break; // 'ê'
-      case 130: pl = 4+9; break; // '³'
-      case 132: pl = dualChar==197 ? 5+9 : 1; break; // 'ñ' and '¥'
-      case 179: pl = 6+9; break; // 'ó'
-      case 155: pl = 7+9; break; // 'œ'
-      case 186: pl = 8+9; break; // 'Ÿ'
-      case 188: pl = 9+9; break; // '¿'
-      //case 132: pl = 1; break; // '¥'
-      case 134: pl = 2; break; // 'Æ'
-      case 152: pl = 3; break; // 'Ê'
-      case 129: pl = 4; break; // '£'
-      case 131: pl = 5; break; // 'Ñ'
-      case 147: pl = 6; break; // 'Ó'
-      case 154: pl = 7; break; // 'Œ'
-      case 185: pl = 8; break; // ''
-      case 187: pl = 9; break; // '¯'
+      case 133: pl = 1+9; break; // 'ï¿½'
+      case 135: pl = 2+9; break; // 'ï¿½'
+      case 153: pl = 3+9; break; // 'ï¿½'
+      case 130: pl = 4+9; break; // 'ï¿½'
+      case 132: pl = dualChar==197 ? 5+9 : 1; break; // 'ï¿½' and 'ï¿½'
+      case 179: pl = 6+9; break; // 'ï¿½'
+      case 155: pl = 7+9; break; // 'ï¿½'
+      case 186: pl = 8+9; break; // 'ï¿½'
+      case 188: pl = 9+9; break; // 'ï¿½'
+      //case 132: pl = 1; break; // 'ï¿½'
+      case 134: pl = 2; break; // 'ï¿½'
+      case 152: pl = 3; break; // 'ï¿½'
+      case 129: pl = 4; break; // 'ï¿½'
+      case 131: pl = 5; break; // 'ï¿½'
+      case 147: pl = 6; break; // 'ï¿½'
+      case 154: pl = 7; break; // 'ï¿½'
+      case 185: pl = 8; break; // 'ï¿½'
+      case 187: pl = 9; break; // 'ï¿½'
       default:  return c; break;
     }
     dualChar = 0;
   } else   
   switch(_c) {  // Windows coding
-    case 165: pl = 1; break; // ¥
-    case 198: pl = 2; break; // Æ
-    case 202: pl = 3; break; // Ê
-    case 163: pl = 4; break; // £
-    case 209: pl = 5; break; // Ñ
-    case 211: pl = 6; break; // Ó
-    case 140: pl = 7; break; // Œ
-    case 143: pl = 8; break; // 
-    case 175: pl = 9; break; // ¯
-    case 185: pl = 10; break; // ¹
-    case 230: pl = 11; break; // æ
-    case 234: pl = 12; break; // ê
-    case 179: pl = 13; break; // ³
-    case 241: pl = 14; break; // ñ
-    case 243: pl = 15; break; // ó
-    case 156: pl = 16; break; // œ
-    case 159: pl = 17; break; // Ÿ
-    case 191: pl = 18; break; // ¿
+    case 165: pl = 1; break; // ï¿½
+    case 198: pl = 2; break; // ï¿½
+    case 202: pl = 3; break; // ï¿½
+    case 163: pl = 4; break; // ï¿½
+    case 209: pl = 5; break; // ï¿½
+    case 211: pl = 6; break; // ï¿½
+    case 140: pl = 7; break; // ï¿½
+    case 143: pl = 8; break; // ï¿½
+    case 175: pl = 9; break; // ï¿½
+    case 185: pl = 10; break; // ï¿½
+    case 230: pl = 11; break; // ï¿½
+    case 234: pl = 12; break; // ï¿½
+    case 179: pl = 13; break; // ï¿½
+    case 241: pl = 14; break; // ï¿½
+    case 243: pl = 15; break; // ï¿½
+    case 156: pl = 16; break; // ï¿½
+    case 159: pl = 17; break; // ï¿½
+    case 191: pl = 18; break; // ï¿½
     default:  return c; break;
   }
   return pl+'~'+1;

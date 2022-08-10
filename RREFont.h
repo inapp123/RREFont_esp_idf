@@ -4,7 +4,21 @@
 #ifndef _RRE_FONT_H
 #define _RRE_FONT_H 
 
-#include <Arduino.h>
+// #include <Arduino.h>
+#include "pgmspace.h"
+#include "esp_system.h"
+
+#ifndef max
+#define max(a,b)            (((a) > (b)) ? (a) : (b))
+#endif
+
+#ifndef min
+#define min(a,b)            (((a) < (b)) ? (a) : (b))
+#endif
+
+#ifndef isdigit
+#define isdigit(c)          ((c) >= '0' && (c) <= '9')
+#endif
 
 // ---------  CONFIG ----------
 // adds 400 bytes
